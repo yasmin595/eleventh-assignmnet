@@ -110,7 +110,7 @@ const LogIn = () => {
       <SocialLogIn></SocialLogIn>
             <p className="font-semibold text-center pt-5">
               Don't Have An Account ?{" "}
-              <Link  to = "/auth/sign-up" className="text-secondary" >
+              <Link  to = "/auth/register" className="text-secondary" >
                 Register
               </Link>
             </p>

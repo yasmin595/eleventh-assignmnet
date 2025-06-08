@@ -8,6 +8,7 @@ import AuthLayout from "../pages/layout/AuthLayout";
 import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
 import AddItems from "../pages/AddItems";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,9 @@ const router = createBrowserRouter([
      },
      {
       path:"/addItems",
-      element: <AddItems></AddItems>
+      element: <PrivateRoute>
+        <AddItems></AddItems>
+      </PrivateRoute>
      }
     ]
   },
