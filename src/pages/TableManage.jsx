@@ -20,7 +20,7 @@ const TableManage = ({setTables, table, tables}) => {
             if (result.isConfirmed) {
 
                 // start deleting the coffee
-                fetch(`https://assigment-copy-gj1o.onrender.com/task/${_id}`, {
+                fetch(`http://localhost:3000/items/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -67,7 +67,7 @@ const TableManage = ({setTables, table, tables}) => {
                   <td>{date}</td>
                   <td>{location}</td>
                     <td className="space-x-2 grid grid-cols-1 ">
-          <Link to={`/updated-task/${_id}`}><button className="btn btn-xs btn-primary my-1">Update</button></Link>
+          <Link to={`/updated-table/${_id}`}><button className="btn btn-xs btn-primary my-1">Update</button></Link>
           <button onClick={()=> handleDelete(_id)} className="btn btn-xs text-white bg-red-700 my-1">Delete</button>
           <button className="btn btn-xs btn-primary">Bids</button>
         </td>
