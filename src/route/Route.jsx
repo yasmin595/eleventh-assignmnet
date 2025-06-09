@@ -13,6 +13,7 @@ import Loading from "../pages/shared/Loading";
 import AllItems from "../pages/AllItems";
 import ItemsDetails from "../pages/ItemsDetails";
 import ManageItem from "../pages/ManageItem";
+import UpdatedTable from "../pages/UpdatedTable";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,14 @@ const router = createBrowserRouter([
       hydrateFallbackElement:<Loading></Loading>,
           
      },
+     {
+      path:"/updated-table/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/items/${params.id}`),
+      element:<PrivateRoute>
+        <UpdatedTable></UpdatedTable>
+      </PrivateRoute>,
+            hydrateFallbackElement:<Loading></Loading>,
+     }
 
     ]
   },

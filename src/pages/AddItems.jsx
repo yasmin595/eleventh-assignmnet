@@ -46,21 +46,7 @@ const AddItems = () => {
                
                 }
             })
-        //    axios.post('http://localhost:3000/items', newItems)
-        //     .then(res => {
-        //         if (res.data.insertedId) {
-        //             Swal.fire({
-        //                 position: "top-end",
-        //                 icon: "success",
-        //                 title: "This new Job has been saved and published.",
-        //                 showConfirmButton: false,
-        //                 timer: 1500
-        //             });
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
+       
     }
 
 
