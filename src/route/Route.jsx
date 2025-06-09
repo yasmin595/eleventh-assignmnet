@@ -9,6 +9,9 @@ import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
 import AddItems from "../pages/AddItems";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Loading from "../pages/shared/Loading";
+import AllItems from "../pages/AllItems";
+import ItemsDetails from "../pages/ItemsDetails";
 
 const router = createBrowserRouter([
   {
@@ -17,14 +20,32 @@ const router = createBrowserRouter([
     children:[
      {
         index:true,
+          loader: () => fetch('http://localhost:3000/my-items'),
         element:<Home></Home>,
+        hydrateFallbackElement:<Loading></Loading>,
+
      },
      {
       path:"/addItems",
       element: <PrivateRoute>
         <AddItems></AddItems>
       </PrivateRoute>
-     }
+     },
+     {
+      path:"/allItems",
+          loader: () => fetch('http://localhost:3000/items'),
+      element:<AllItems></AllItems>,
+       hydrateFallbackElement:<Loading></Loading>,
+
+     },
+     {
+     path:"/details",
+     
+     element:<PrivateRoute>
+      <ItemsDetails></ItemsDetails>
+     </PrivateRoute>,
+
+     },
     ]
   },
   {

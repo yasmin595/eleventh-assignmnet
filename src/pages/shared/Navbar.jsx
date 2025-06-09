@@ -41,7 +41,7 @@ const Navbar = () => {
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   return (
-    <div className='bg-gray-100 dark:bg-gray-800'>
+    <div className='bg-gray-100 dark:bg-gray-800 mx-auto'>
       <div className="px-2 lg:px-4 navbar bg-base-100 mx-auto shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -50,7 +50,7 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li><NavLink to='/'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Home</NavLink></li>
-              <li><NavLink to='/items'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
+              <li><NavLink to='/allItems'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
             
               <li>
                 <button onClick={toggleTheme} className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
@@ -97,7 +97,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li><NavLink to='/'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Home</NavLink></li>
-            <li><NavLink to='/items'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
+            <li><NavLink to='/allItems'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
     
             <li>
               <button onClick={toggleTheme} className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
