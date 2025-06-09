@@ -3,9 +3,10 @@ import { MdOutlineTitle } from "react-icons/md";
 import { TbCategory } from "react-icons/tb";
 import { MdOutlineDescription } from "react-icons/md";
 import { FaEye } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const LatestFoundLost = ({item}) => {
-    const {thumbnail,title,  category, description, postType,   } = item
+    const {thumbnail,title,  category, description, postType, _id  } = item
 
    
 //         {
@@ -43,7 +44,9 @@ const LatestFoundLost = ({item}) => {
     </div>
    
     <div className="card-actions justify-end">
+   <Link to={`/items/${_id}`}>
       <button className="btn bg-green-100 text-green-800"> <span><FaEye /></span>View details</button>
+   </Link>
     </div>
   </div>
 </div>

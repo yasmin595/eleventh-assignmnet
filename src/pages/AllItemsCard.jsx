@@ -2,9 +2,10 @@ import React from 'react';
 import { FaEye } from 'react-icons/fa';
 import { MdOutlineDescription, MdOutlineTitle } from 'react-icons/md';
 import { TbCategory } from 'react-icons/tb';
+import { Link } from 'react-router';
 
 const AllItemsCard = ({allItem}) => {
-     const {thumbnail,title,  category, description, postType,   } = allItem
+     const {thumbnail,title,  category, description, postType, _id   } = allItem
 
     return (
           <div className='w-11/12 mx-auto '>
@@ -29,7 +30,9 @@ const AllItemsCard = ({allItem}) => {
            </div>
           
            <div className="card-actions justify-end">
-             <button className="btn bg-green-100 text-green-800"> <span><FaEye /></span>View details</button>
+              <Link to={`/items/${_id}`}>
+      <button className="btn bg-green-100 text-green-800"> <span><FaEye /></span>View details</button>
+   </Link>
            </div>
          </div>
        </div>

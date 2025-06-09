@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import AllItemsCard from './AllItemsCard';
+import LatestFoundLost from './LatestFoundLost';
 
 const AllItems = () => {
        const allItems = useLoaderData();
@@ -10,7 +10,7 @@ const AllItems = () => {
                <h1 className='font-bold py-2 bg-white text-2xl text-green-800 md:flex my-4 '> Latest Find & Lost Item Section </h1>
            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
            {
-allItems.map(allItem => <AllItemsCard key={allItem._id} allItem={allItem}></AllItemsCard>)
+allItems.map(item => <LatestFoundLost key={item._id} item={item}></LatestFoundLost>)
 
            }
         </div>

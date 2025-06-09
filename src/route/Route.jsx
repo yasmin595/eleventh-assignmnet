@@ -12,6 +12,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import Loading from "../pages/shared/Loading";
 import AllItems from "../pages/AllItems";
 import ItemsDetails from "../pages/ItemsDetails";
+import ManageItem from "../pages/ManageItem";
 
 const router = createBrowserRouter([
   {
@@ -39,13 +40,24 @@ const router = createBrowserRouter([
 
      },
      {
-     path:"/details",
-     
+     path:"/items/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/items/${params.id}`),
      element:<PrivateRoute>
       <ItemsDetails></ItemsDetails>
      </PrivateRoute>,
-
+        hydrateFallbackElement:<Loading></Loading>,
+          
      },
+       {
+     path:"/item/:email",
+      
+     element:<PrivateRoute>
+      <ManageItem></ManageItem>
+     </PrivateRoute>,
+      hydrateFallbackElement:<Loading></Loading>,
+          
+     },
+
     ]
   },
   {
