@@ -6,13 +6,15 @@ import { manageItemPromise } from '../api/ManageItemApi';
  
 
 const ManageItem = () => {
-    const {user} = use(AuthContext);
+    const {user,logOut } = use(AuthContext);
+
+    // console.log( 'token in the context',  user.accessToken)
 
     
   
     return (
         <div className='mx-auto my-8 w-11/12'>
-         <ManageItemTable manageItemPromise={manageItemPromise(user?.email)}>
+         <ManageItemTable manageItemPromise={manageItemPromise(user?.email, user.accessToken, logOut)}>
            
          </ManageItemTable>
         </div>

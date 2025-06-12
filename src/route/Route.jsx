@@ -68,8 +68,8 @@ const router = createBrowserRouter([
        hydrateFallbackElement:<Loading></Loading>,
      },
      {
-      path:"recoveredItems",
-      loader:()=>fetch(`http://localhost:3000/recover`),
+      path:"/recover",
+      loader:  ()  =>fetch  ("http://localhost:3000/recover"),
       element:<PrivateRoute>
         <RecoveredItems></RecoveredItems>
       </PrivateRoute>,

@@ -78,7 +78,7 @@ const Navbar = () => {
                {showDropdown && (
   <div className="absolute right-0 top-full  mt-2 w-48 bg-white shadow-md rounded-lg z-50 p-2 ">
     <li><NavLink to="/addItems" className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Add Lost & Found Item</NavLink></li>
-   <li> <NavLink to="/recovered-items"  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>All Recovered Items</NavLink></li>
+   <li> <NavLink to="/recover"  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>All Recovered Items</NavLink></li>
     <li><NavLink to={`/item/${user?.email}`} className={({isActive})=>isActive? 'text-green-800 underline font-semibold':' '} >Manage My Items</NavLink></li>
     <button onClick={handleLogOut} className="w-full text-left p-2 bg-red-100 hover:bg-red-200 rounded">Logout</button>
   </div>
@@ -127,7 +127,7 @@ const Navbar = () => {
                {showDropdown && (
   <div className="absolute right-0 top-full  mt-2 w-48 bg-white shadow-md rounded-lg z-50 p-2 ">
     <li><NavLink to="/addItems" className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Add Lost & Found Item</NavLink></li>
-   <li> <NavLink to="/recovered-items"  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>All Recovered Items</NavLink></li>
+   <li> <NavLink to="/recover"  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>All Recovered Items</NavLink></li>
     <li><NavLink to={`/item/${user?.email}`} className={({isActive})=>isActive? 'text-green-800 underline font-semibold':' '} >Manage My Items</NavLink></li>
     <button onClick={handleLogOut} className="w-full text-left p-2 bg-red-100 hover:bg-red-200 rounded">Logout</button>
   </div>
