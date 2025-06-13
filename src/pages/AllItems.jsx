@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import LatestFoundLost from './LatestFoundLost';
+import { Search } from 'lucide-react';
 
 const AllItems = () => {
   const loadedItems = useLoaderData();
@@ -20,15 +21,17 @@ const AllItems = () => {
       <h1 className='font-bold py-2 bg-white text-2xl text-green-800 md:flex my-4'>
        Lost & Find All Items
       </h1>
-
+     <div className='flex justify-center '>
+                  <Search className="h-6 w-6 text-green-600 m-2" />
       <input
 
         type="text"
-        placeholder="Search by title or location..."
+        placeholder="Search by title  |  |  location..."
         className="w-full p-2 border-2 mb-6 rounded border-green-800"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
+     </div>
 
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
         {filteredItems.length > 0 ? (
