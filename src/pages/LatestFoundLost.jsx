@@ -54,7 +54,7 @@ const LatestFoundLost = ({ item }) => {
           {/* View Details Button */}
           <div className="mt-3">
             <Link to={`/items/${_id}`}>
-              <button className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 font-medium rounded-md hover:bg-green-200 transition">
+              <button className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 font-medium rounded-md hover:bg-green-800 hover:text-white transition">
                 <FaEye className="text-sm" />
                 View Details
               </button>

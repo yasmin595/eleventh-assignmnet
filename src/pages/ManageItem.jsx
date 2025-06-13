@@ -14,7 +14,7 @@ const ManageItem = () => {
   
     return (
         <div className='mx-auto my-8 w-11/12'>
-         <ManageItemTable manageItemPromise={manageItemPromise(user?.email, user.accessToken, logOut)}>
+         <ManageItemTable manageItemPromise={manageItemPromise(user?.email, user?.accessToken, logOut)}>
            
          </ManageItemTable>
         </div>

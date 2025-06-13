@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip';
 import { AuthContext } from '../context/AuthContext/AuthContext';
-import { FaCalendarPlus } from 'react-icons/fa';
+import { FaPlusCircle } from "react-icons/fa";
 
 const AddItems = () => {
   const { user } = use(AuthContext);
@@ -39,7 +39,7 @@ const AddItems = () => {
     <div className="p-6 md:p-12 bg-gradient-to-br from-green-100 via-blue-50 to-yellow-100 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-10 border border-green-300">
         <h2 className="text-4xl font-extrabold text-center text-green-700 mb-10 flex items-center justify-center gap-3">
-          <FaCalendarPlus className="text-green-600 text-5xl" /> Add New Item
+          <FaPlusCircle className="text-green-600 text-5xl" /> Add New Item
         </h2>
         <form onSubmit={handleAddItems} className="space-y-6">
 

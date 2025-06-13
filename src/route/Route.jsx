@@ -14,8 +14,9 @@ import AllItems from "../pages/AllItems";
 import ItemsDetails from "../pages/ItemsDetails";
 import ManageItem from "../pages/ManageItem";
 import UpdatedTable from "../pages/UpdatedTable";
-import RecoveredItems from "../pages/RecoveredItems";
+
 import ErrorPage from "../pages/ErrorPage";
+import ManageRecover from "../pages/ManageRecover";
 
 const router = createBrowserRouter([
   {
@@ -69,10 +70,10 @@ const router = createBrowserRouter([
        hydrateFallbackElement:<Loading></Loading>,
      },
      {
-      path:"/recover",
-      loader:  ()  =>fetch  ("http://localhost:3000/recover"),
+      path:"/recover/:email",
+      
       element:<PrivateRoute>
-        <RecoveredItems></RecoveredItems>
+     <ManageRecover></ManageRecover>
       </PrivateRoute>,
             hydrateFallbackElement:<Loading></Loading>,
      },

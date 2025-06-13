@@ -17,6 +17,9 @@ const ManageItemTable = ({ manageItemPromise }) => {
 
   return (
         <div className='w-11/12 mx-auto my-8  bg-gray-100 dark:bg-gray-800 p-4 '>
+          {tables.length === 0 && (
+  <p className="text-center text-green-600 mt-4">You haven't added any recovered items yet.</p>
+)}
            <div className='grid grid-cols-1  gap-2 '>
            {
 tables.map(table => <TableManage key={table._id} table={table}  tables={tables}  setTables={setTables}></TableManage>)

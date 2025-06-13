@@ -1,23 +1,24 @@
-import { Calendar } from 'lucide-react';
+
 import { Link } from 'react-router';
+import { Search } from 'lucide-react';
 
 const Footer = () => {
     return (
         <footer className="mt-8 py-4 px-4 md:px-6 lg:px-8">
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                    <div className="space-y-4">
-                        <Link href="/" className="flex items-center gap-2">
-                            <Calendar className="h-6 w-6" />
-                            <span className="text-xl font-bold text-secondary">Freelancer Market Place </span>
-                        </Link>
-                        <p className=" text-xs">
-                            Discover and explore budget friendly <br /> skill happening in your wold. Find you work and more.
-                        </p>  
-                    </div>
+                     <div>
+            <Link to="/" className="flex items-center gap-2 mb-3">
+              <Search className="h-6 w-6 text-green-600" />
+              <span className="text-xl font-bold text-green-800">Found & Lost</span>
+            </Link>
+            <p className="text-sm text-gray-600">
+              A safe platform to report and find <br /> lost or found items near you.
+            </p>
+          </div>
 
                     <div>
-                        <h3 className="font-medium text-lg mb-4 text-secondary">Quick Links</h3>
+                        <h3 className="font-medium text-lg mb-4 text-green-800">Quick Links</h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link to='/' className="text-muted-foreground hover:text-foreground text-sm">
@@ -25,25 +26,21 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/my-profile' className="text-muted-foreground hover:text-foreground text-sm">
-                                   Add Task
+                                <Link to='/addItems' className="text-muted-foreground hover:text-foreground text-sm">
+                                   Add Items
                                 </Link>
                             </li>
                             <li>
-                                <Link  className="text-muted-foreground hover:text-foreground text-sm">
-                                   Browse Task
+                                <Link to="/allItems"  className="text-muted-foreground hover:text-foreground text-sm">
+                                   Found & lost Items
                                 </Link>
                             </li>
-                            <li>
-                                <Link  className="text-muted-foreground hover:text-foreground text-sm">
-                                   My Posted Task
-                                </Link>
-                            </li>
+                          
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="font-medium text-lg mb-4 text-secondary">Legal</h3>
+                        <h3 className="font-medium text-lg mb-4 text-green-800">Legal</h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link href="/terms" className="text-muted-foreground hover:text-foreground text-sm">
@@ -64,7 +61,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h3 className="font-medium text-lg mb-4 text-secondary">Connect With Us</h3>
+                        <h3 className="font-medium text-lg mb-4 text-green-800">Connect With Us</h3>
                         <div className="flex space-x-4">
                             <a
                                 href="https://twitter.com"
