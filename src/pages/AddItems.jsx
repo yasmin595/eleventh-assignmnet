@@ -1,152 +1,183 @@
 import React, { use, useState } from 'react';
 import Swal from 'sweetalert2';
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import 'react-tooltip/dist/react-tooltip.css'
+import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip';
 import { AuthContext } from '../context/AuthContext/AuthContext';
-
+import { FaCalendarPlus } from 'react-icons/fa';
 
 const AddItems = () => {
-    const { user } = use(AuthContext);
+  const { user } = use(AuthContext);
+  const [startDate, setStartDate] = useState(new Date());
 
-    
-          const [startDate, setStartDate] = useState(new Date());
+  const handleAddItems = e => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const newItems = Object.fromEntries(formData.entries());
 
-    const handleAddItems = e => {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const newItems = Object.fromEntries(formData.entries())
-        console.log(newItems);
+    fetch('http://localhost:3000/items', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newItems)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Item added successfully!",
+            icon: "success",
+            confirmButtonColor: "#16a34a"
+          });
+          form.reset();
+        }
+      });
+  };
 
+  return (
+    <div className="p-6 md:p-12 bg-gradient-to-br from-green-100 via-blue-50 to-yellow-100 min-h-screen">
+      <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-10 border border-green-300">
+        <h2 className="text-4xl font-extrabold text-center text-green-700 mb-10 flex items-center justify-center gap-3">
+          <FaCalendarPlus className="text-green-600 text-5xl" /> Add New Item
+        </h2>
+        <form onSubmit={handleAddItems} className="space-y-6">
 
-        // send task data to the db
-        fetch('http://localhost:3000/items', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newItems)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if(data.insertedId){
-                    console.log('added successfully.')
-
-                    Swal.fire({
-                        title: "items added successfully!",
-                        icon: "success",
-                        draggable: true
-                      });
-
-                    //   form.reset()
-               
-                }
-            })
-       
-    }
-
-
-
-    return (
-        <div className='p-24 bg-gray-100 dark:bg-gray-800'>
-            <div className='p-12 text-center space-y-4'>
-                <h1 className="text-4xl font-bold text-green-800 bg-white ">Add Items</h1>
-              
-            </div>
-            <form onSubmit={handleAddItems}>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                            <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4 dropdown ">
-                        <label className="label">Post-Type</label>
-                         
-                        {/* <input type="text" name='category' className="input w-full" placeholder="Category Name" /> */}
-                <input
-           list="postType"
-             name="postType"
-          
-              className="input input-bordered w-full"
-          placeholder="Select or type a PostType"
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="font-semibold text-green-800">Post Type</label>
+              <input
+                list="postType"
+                name="postType"
                 required
+                className="input input-bordered w-full border-green-400"
+                placeholder="Select or type a post type"
               />
-
-             <datalist id="postType">
-              <option value="lost Items" />
+              <datalist id="postType">
+                <option value="lost Items" />
                 <option value="found Items" />
-           
               </datalist>
-                    </fieldset>
-                     <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4">
-                        <label className="label ">Thumbnail</label>
-                        <input type="url" name='thumbnail' className="input w-full" placeholder="Image URl" />
-                    </fieldset>
-                    <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4">
-                        <label className="label ">Item Title</label>
-                        <input type="text" name='title' className="input w-full" placeholder="Task Title" />
-                    </fieldset>
-                    <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4 dropdown ">
-                        <label className="label">Category</label>
-                         
-                        {/* <input type="text" name='category' className="input w-full" placeholder="Category Name" /> */}
-                <input
-           list="categories"
-             name="category"
-          
-              className="input input-bordered w-full"
-          placeholder="Select or type a category"
+            </div>
+
+            <div>
+              <label className="font-semibold text-green-800">Thumbnail (Image URL)</label>
+              <input
+                type="url"
+                name="thumbnail"
                 required
+                className="input input-bordered w-full border-green-400"
+                placeholder="https://example.com/image.jpg"
               />
+            </div>
 
-             <datalist id="categories">
-              <option value="pets" />
+            <div>
+              <label className="font-semibold text-green-800">Item Title</label>
+              <input
+                type="text"
+                name="title"
+                required
+                className="input input-bordered w-full border-green-400"
+                placeholder="Item title"
+              />
+            </div>
+
+            <div>
+              <label className="font-semibold text-green-800">Category</label>
+              <input
+                list="categories"
+                name="category"
+                required
+                className="input input-bordered w-full border-green-400"
+                placeholder="Select or type a category"
+              />
+              <datalist id="categories">
+                <option value="pets" />
                 <option value="Documentation" />
-              <option value="gadgets" />
-           <option value="Bags" />
-                  <option value="Accessories" />
+                <option value="gadgets" />
+                <option value="Bags" />
+                <option value="Accessories" />
               </datalist>
-                    </fieldset>
-                    <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4">
-                        <label className="label">Description</label>
-                          <textarea className="textarea w-full" name='description' placeholder="Job Description"></textarea>
-                    </fieldset>
-                    <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4">
-                        <label className="label">Location</label>
-                        <input type="location" name='location' className="input w-full" placeholder="Location " />
-                    </fieldset>
-                    <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4">
-                        <label className="label">Date</label>
-                       <DatePicker type='date' name='date'
-                  selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                        customInput={<input className="custom-input" />}
-                  />
-                    </fieldset>
-                   
-                    <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border p-4">
-                        <label className="label ">Name</label>
-                        <input type="text" name='name' readOnly className="input w-full  cursor-not-allowed"  defaultValue={`${user?.displayName}`} placeholder={`${user?.displayName}`}/>
-                    </fieldset>
-               
-               
-                </div>
-                     <fieldset className="fieldset bg-base-300 border-base-300 rounded-box border my-6 p-4">
-                    <label className="label">User Email</label>
-                    <input type="email" name='email' defaultValue={`${user?.email}`}  readOnly className="input w-full cursor-not-allowed" placeholder={`${user?.email}`}  />
-                </fieldset>
+            </div>
 
-                <input type="submit"   data-tooltip-id="add-task-tooltip"
-          data-tooltip-content="Click to Add Items" className='btn  w-full text-white bg-green-800' value="Add task" />
-                <Tooltip
-        id="add-task-tooltip"
-        place="top"
-        style={{ backgroundColor: '#333', color: '#fff', padding: '5px 10px', borderRadius: '4px' }}
-      />
-                   
-            </form>
-        </div>
-    );
+            <div>
+              <label className="font-semibold text-green-800">Location</label>
+              <input
+                type="text"
+                name="location"
+                required
+                className="input input-bordered w-full border-green-400"
+                placeholder="Where it was lost/found"
+              />
+            </div>
+
+            <div>
+              <label className="font-semibold text-green-800 p-4">Date</label>
+              <DatePicker
+                selected={startDate}
+                name="date"
+                required
+                onChange={(date) => setStartDate(date)}
+                className="input input-bordered w-full border-green-400"
+              />
+            </div>
+
+            <div>
+              <label className="font-semibold text-green-800">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                defaultValue={user?.displayName}
+                readOnly
+                className="input input-bordered w-full cursor-not-allowed border-green-400 bg-green-100"
+              />
+            </div>
+
+            <div>
+              <label className="font-semibold text-green-800">Email</label>
+              <input
+                type="email"
+                name="email"
+                defaultValue={user?.email}
+                readOnly
+                className="input input-bordered w-full cursor-not-allowed border-green-400 bg-green-100"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="font-semibold text-green-800">Description</label>
+            <textarea
+              name="description"
+              required
+              className="textarea textarea-bordered w-full border-green-400"
+              placeholder="Provide details about the item..."
+              rows={4}
+            ></textarea>
+          </div>
+
+          <div className="text-center mt-10">
+            <input
+              type="submit"
+              value=" Add Item"
+              className="btn bg-gradient-to-r from-green-600 to-lime-500 hover:from-green-700 hover:to-green-600 text-white text-lg font-semibold w-full rounded-full shadow-md"
+              data-tooltip-id="add-task-tooltip"
+              data-tooltip-content="Click to Add Item"
+            />
+            <Tooltip
+              id="add-task-tooltip"
+              place="top"
+              style={{
+                backgroundColor: '#333',
+                color: '#fff',
+                padding: '5px 10px',
+                borderRadius: '4px',
+              }}
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default AddItems;

@@ -31,7 +31,7 @@ toast.success("You Successfully log in with your google account")
 //    Navigate(`${location.state ? location.state : "/"}`)
     return (
         <div>
-             <button onClick={handleGoogleSign} className="btn btn-secondary btn-outline w-full">
+             <button onClick={handleGoogleSign} className="btn bg-[#efeeb4] text-amber-700 hover:bg-amber-700 hover:text-white w-full">
                       <FcGoogle size={24} /> Login with Google
                     </button>
         </div>

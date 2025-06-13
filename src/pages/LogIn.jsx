@@ -9,7 +9,8 @@ import { FaEyeSlash } from 'react-icons/fa6';
 import { toast } from "react-toastify";
 import SocialLogIn from "./SocialLogIn";
 import { AuthContext } from "../context/AuthContext/AuthContext";
-
+import Lottie from "lottie-react";
+import logLottie from '../assets/lottiess.json'
 
 // import { auth } from "../firebase/firebase.init";
 
@@ -62,9 +63,14 @@ const LogIn = () => {
 
 
   return (
-    <div className="flex justify-center min-h-screen items-center">
+    <div className="md:flex justify-center min-h-screen items-center">
+<div className="mx-8">
+
+  <Lottie className='w-[250px]' animationData={logLottie} loop={true} ></Lottie>
+</div>
+
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="font-semibold text-2xl text-center">
+        <h2 className="font-semibold text-green-800 text-2xl text-center">
           Login your account
         </h2>
         <form onSubmit={handleLogin} className="card-body">
@@ -104,13 +110,13 @@ const LogIn = () => {
 
             {error && <p className="text-red-400 text-xs">{error}</p>}
 
-            <button type="submit" className="btn btn-outline mt-4 btn-secondary ">
+            <button type="submit" className="btn hover:bg-green-800 hover:text-white  bg-green-100 text-green-800  mt-4 b ">
               Login
             </button>
       <SocialLogIn></SocialLogIn>
             <p className="font-semibold text-center pt-5">
               Don't Have An Account ?{" "}
-              <Link  to = "/auth/register" className="text-secondary" >
+              <Link  to = "/auth/register" className="text-green-800" >
                 Register
               </Link>
             </p>

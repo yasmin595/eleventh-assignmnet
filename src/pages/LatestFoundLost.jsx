@@ -1,58 +1,69 @@
 import React from 'react';
-import { MdOutlineTitle } from "react-icons/md";
+import { MdOutlineTitle, MdOutlineDescription } from "react-icons/md";
 import { TbCategory } from "react-icons/tb";
-import { MdOutlineDescription } from "react-icons/md";
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router';
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-const LatestFoundLost = ({item}) => {
-    const {thumbnail,title,  category, description, postType, _id  } = item
+const LatestFoundLost = ({ item }) => {
+  const { thumbnail, title, category, description, postType, _id , location} = item;
 
-   
-//         {
-//     "_id": "6845b9aa57f41355bafb1f14",
-//     "postType": "lost Items",
-//     "thumbnail": "https://i.ibb.co/NnY9D5cB/download-5.jpg",
-//     "title": "lost my gadget",
-//     "category": "gadgets",
-//     "description": "i lost my gadget",
-//     "location": "bangladesh",
-//     "date": "06/10/2025",
-//     "name": "rifat",
-//     "email": "mdrifatnicevedio202@gmail.com"
-//   },
-    return (
-        <div className='w-11/12 mx-auto '>
-   
-
-   <div className="card w-xl card-side bg-base-100 shadow-sm">
- 
-   <div>
-      <figure>
-    <img className='w-11/12 flex justify-center items-center py-4'
-      src={thumbnail}
-      alt="picture" />
-  </figure>
-   </div>
- 
-  <div className="card-body w-full  ">
-    <h2 className="card-title font-semibold ">{postType}</h2>
-    <div className=' w-full  '>
-        <p className='text-sm font-light flex  items-center p-1 '> <span className='text-xl'><MdOutlineTitle /> </span><span className='font-extrabold p-1'>:</span>  {title}</p>
-    <p className='text-sm font-light flex  items-center p-1'> <span className='text-xl'><TbCategory /> </span><span className='font-extrabold p-1'>:</span>  {category}</p>
-    <p className='text-sm font-light flex  items-center p-1'> <span className='text-xl'><MdOutlineDescription /> </span><span className='font-extrabold p-1'>:</span>  {description}</p>
-    </div>
-   
-    <div className="card-actions justify-end">
-   <Link to={`/items/${_id}`}>
-      <button className="btn bg-green-100 text-green-800"> <span><FaEye /></span>View details</button>
-   </Link>
-    </div>
-  </div>
-</div>
-           
+  return (
+    <div className='w-full max-w-4xl mx-auto p-4'>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.50 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 3 }}
+        className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+      >
+        {/* Image */}
+        <div className="md:w-1/3">
+          <img
+            src={thumbnail}
+            alt="item"
+            className="w-full h-48 p-4"
+          />
         </div>
-    );
+
+        {/* Content */}
+        <div className="p-4 flex flex-col justify-between md:w-2/3">
+          <div>
+            <h2 className="text-lg font-semibold text-green-700 mb-2">  {postType}</h2>
+
+            <p className="text-sm flex items-center text-gray-600 mb-1">
+              <MdOutlineTitle className="text-lg text-green-500 mr-2" />
+              <span className="font-medium pr-1">Title:</span>  {title}
+            </p>
+
+            <p className="text-sm flex items-center text-gray-600 mb-1">
+              <TbCategory className="text-lg text-green-500 mr-2" />
+              <span className="font-medium pr-1">Category:</span>  {category}
+            </p>
+
+            <p className="text-sm flex items-start text-gray-600 mb-2">
+              <MdOutlineDescription className="text-lg text-green-500 mr-2 mt-0.5" />
+              <span className="font-medium pr-1">Description:</span>  {description}
+            </p>
+            <p className="text-sm flex items-start text-gray-600 mb-2">
+              <FaMapMarkerAlt className="text-lg text-green-500 mr-2 mt-0.5" />
+              <span className="font-medium pr-1">Location:</span>  {location}
+            </p>
+          </div>
+
+          {/* View Details Button */}
+          <div className="mt-3">
+            <Link to={`/items/${_id}`}>
+              <button className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 font-medium rounded-md hover:bg-green-200 transition">
+                <FaEye className="text-sm" />
+                View Details
+              </button>
+            </Link>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
 };
 
 export default LatestFoundLost;

@@ -53,7 +53,7 @@ const Navbar = () => {
               <li><NavLink to='/allItems'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
             
               <li>
-                <button onClick={toggleTheme} className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+                <button onClick={toggleTheme} className="p-2 rounded  hover:bg-gray-200  dark:hover:bg-gray-700">
                   {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
                 </button>
               </li>
@@ -80,13 +80,16 @@ const Navbar = () => {
     <li><NavLink to="/addItems" className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Add Lost & Found Item</NavLink></li>
    <li> <NavLink to="/recover"  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>All Recovered Items</NavLink></li>
     <li><NavLink to={`/item/${user?.email}`} className={({isActive})=>isActive? 'text-green-800 underline font-semibold':' '} >Manage My Items</NavLink></li>
-    <button onClick={handleLogOut} className="w-full text-left p-2 bg-red-100 hover:bg-red-200 rounded">Logout</button>
+    <button onClick={handleLogOut} className="w-full text-left p-2bg-[#efeeb4] text-amber-700 hover:bg-amber-700  hover:text-white   rounded">Logout</button>
   </div>
 )}
                   </div>
                   
                 ) : (
-                  <Link to="/auth/login" className="btn btn-secondary btn-outline px-4">Login</Link>
+                  <div><Link to="/auth/login" className="btn  hover:bg-green-800 hover:text-white  bg-green-100 text-green-800 px-4">Login</Link>
+                    <Link to="/auth/register" className="btn bg-[#efeeb4] text-amber-700 hover:bg-amber-700  hover:text-white    px-4">Register</Link>
+                  
+                  </div>
                 )}
               </li>
             </ul>
@@ -129,14 +132,14 @@ const Navbar = () => {
     <li><NavLink to="/addItems" className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Add Lost & Found Item</NavLink></li>
    <li> <NavLink to="/recover"  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>All Recovered Items</NavLink></li>
     <li><NavLink to={`/item/${user?.email}`} className={({isActive})=>isActive? 'text-green-800 underline font-semibold':' '} >Manage My Items</NavLink></li>
-    <button onClick={handleLogOut} className="w-full text-left p-2 bg-red-100 hover:bg-red-200 rounded">Logout</button>
+    <button onClick={handleLogOut} className="w-full text-left p-2 bg-[#efeeb4] text-amber-700 hover:bg-amber-700 hover:text-white  rounded">Logout</button>
   </div>
 )}
                 </div>
               ) : (
               <div>
-                  <Link to="/auth/login" className="btn btn-secondary btn-outline px-4">Login</Link>
-                <Link to="/auth/register" className="btn btn-secondary btn-outline px-4">Register</Link>
+                  <Link to="/auth/login" className="btn  hover:bg-green-800 hover:text-white  bg-green-100 text-green-800 px-4">Login</Link>
+                <Link to="/auth/register" className="btn bg-[#efeeb4] text-amber-700 hover:bg-amber-700  hover:text-white    px-4">Register</Link>
               </div>
 
                

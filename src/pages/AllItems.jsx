@@ -18,13 +18,14 @@ const AllItems = () => {
   return (
     <div className='w-11/12 mx-auto my-8'>
       <h1 className='font-bold py-2 bg-white text-2xl text-green-800 md:flex my-4'>
-        Latest Find & Lost Item Section
+       Lost & Find All Items
       </h1>
 
       <input
+
         type="text"
         placeholder="Search by title or location..."
-        className="w-full p-2 border mb-6 rounded"
+        className="w-full p-2 border-2 mb-6 rounded border-green-800"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />

@@ -15,6 +15,7 @@ import ItemsDetails from "../pages/ItemsDetails";
 import ManageItem from "../pages/ManageItem";
 import UpdatedTable from "../pages/UpdatedTable";
 import RecoveredItems from "../pages/RecoveredItems";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +75,12 @@ const router = createBrowserRouter([
         <RecoveredItems></RecoveredItems>
       </PrivateRoute>,
             hydrateFallbackElement:<Loading></Loading>,
-     }
+     },
+       {
+      path:'/*',
+      element:<ErrorPage></ErrorPage>
+
+        },
 
     ]
   },
@@ -92,11 +98,23 @@ children:[
         path:"/auth/register",
         Component:Register,
     },
+      {
+      path:'/auth/*',
+      element:<ErrorPage></ErrorPage>
+
+        },
 
 ]
 
+
   
   },
+
+    {
+      path:'/*',
+      element:<ErrorPage></ErrorPage>
+
+        },
 ]);
 
 export default router;
