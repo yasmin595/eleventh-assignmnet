@@ -5,6 +5,7 @@ import { FaEye } from 'react-icons/fa';
 import { motion } from "framer-motion";
 import Banner from './Banner';
 import PopularItems from './PopularItems';
+import NewsletterSection from './Subscribe';
 
 const Home = () => {
       const items = useLoaderData();
@@ -30,6 +31,7 @@ items.map(item => <LatestFoundLost key={item._id} item={item}></LatestFoundLost>
         </div>
 <div>    <Link to="allItems"  className="btn  hover:bg-green-800 hover:text-white   mx-auto p-4 m-6 ml-4 md:flex justify-center items-center bg-green-100 text-green-800"> <span><FaEye /></span>See All</Link></div>
        <PopularItems></PopularItems>
+       <NewsletterSection></NewsletterSection>
         </div>
     );
 };
