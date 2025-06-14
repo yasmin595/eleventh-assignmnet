@@ -7,10 +7,12 @@ import { toast } from "react-toastify";
 import registerLottie from "../assets/lottie.json"
 import Lottie from "lottie-react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
+import { TabTitle } from "../utils/General";
 
 
 
 const Register = () => {
+    TabTitle('WhereIsIt-registrationPage')
 
 
   const { createUser, setUser, updateUser } = use(AuthContext);

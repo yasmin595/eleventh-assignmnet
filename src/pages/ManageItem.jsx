@@ -2,10 +2,12 @@ import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext/AuthContext';
 import ManageItemTable from './ManageItemTable';
 import { manageItemPromise } from '../api/ManageItemApi';
+import { TabTitle } from '../utils/General';
 
  
 
 const ManageItem = () => {
+    TabTitle('WhereIsIt-manageItems')
     const {user,logOut } = use(AuthContext);
 
     // console.log( 'token in the context',  user.accessToken)

@@ -11,10 +11,12 @@ import SocialLogIn from "./SocialLogIn";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import Lottie from "lottie-react";
 import logLottie from '../assets/lottiess.json'
+import { TabTitle } from "../utils/General";
 
 // import { auth } from "../firebase/firebase.init";
 
 const LogIn = () => {
+  TabTitle('WhereIsIt-loginPage')
 
   const [error, setError] = useState("");
     const [nameError, setNameError] = useState("");

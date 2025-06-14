@@ -8,8 +8,10 @@ import { motion } from 'framer-motion';
 import { MdOutlineTitle, MdOutlineLocationOn, MdOutlineDescription } from "react-icons/md";
 import { TbCategory } from "react-icons/tb";
 import { AiOutlineCalendar, AiOutlineMail, AiOutlineUser, AiOutlineCheckCircle } from "react-icons/ai";
+import { TabTitle } from '../utils/General';
 
 const ItemsDetails = () => {
+  TabTitle('WhereIsIt-itemsDetails')
   const { postType, _id, title, thumbnail, category, description, location, date, name, email, status } = useLoaderData();
   const { user } = use(AuthContext);
   const [showModal, setShowModal] = useState(false);

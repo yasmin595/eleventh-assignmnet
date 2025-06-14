@@ -7,8 +7,10 @@ import { Tooltip } from 'react-tooltip';
 import { AuthContext } from '../context/AuthContext/AuthContext';
 import { useLoaderData } from 'react-router';
 import { FaEdit } from "react-icons/fa";
+import { TabTitle } from '../utils/General';
 
 const UpdatedTable = () => {
+  TabTitle('WhereIsIt-updateItems')
   const { thumbnail, title, category, description, postType, date, location, _id } = useLoaderData();
   const { user } = use(AuthContext);
   const [startDate, setStartDate] = useState(new Date(date));

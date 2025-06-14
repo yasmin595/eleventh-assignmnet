@@ -6,8 +6,10 @@ import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip';
 import { AuthContext } from '../context/AuthContext/AuthContext';
 import { FaPlusCircle } from "react-icons/fa";
+import { TabTitle } from '../utils/General';
 
 const AddItems = () => {
+   TabTitle('WhereIsIt-addItems')
   const { user } = use(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
 

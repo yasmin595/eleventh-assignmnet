@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import LatestFoundLost from './LatestFoundLost';
 import { Search } from 'lucide-react';
+import { TabTitle } from '../utils/General';
 
 const AllItems = () => {
+  TabTitle('WhereIsIt-allItems')
   const loadedItems = useLoaderData();
   const [searchText, setSearchText] = useState('');
   const [filteredItems, setFilteredItems] = useState(loadedItems);
