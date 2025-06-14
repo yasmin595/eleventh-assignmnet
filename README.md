@@ -24,11 +24,9 @@ A modern, responsive Lost & Found web application built with React and Tailwind 
 
 ## 🌐 Live URL
 
-[🔗 View Live Site](https://your-live-site-url.com)
+[🔗 View Live Site](https://eleventh-assignment-168a5.web.app)
 
-> Replace the above URL with your deployed app's actual link (e.g., Vercel, Netlify, Firebase Hosting).
 
----
 
 ## 🎯 Purpose
 

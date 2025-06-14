@@ -17,6 +17,7 @@ import UpdatedTable from "../pages/UpdatedTable";
 
 import ErrorPage from "../pages/ErrorPage";
 import ManageRecover from "../pages/ManageRecover";
+import QnAPage from "../pages/QnAPage";
 
 const router = createBrowserRouter([
   {
@@ -77,11 +78,18 @@ const router = createBrowserRouter([
       </PrivateRoute>,
             hydrateFallbackElement:<Loading></Loading>,
      },
+
+
+     {
+      path:"/questionAndAnswer",
+      element:<QnAPage></QnAPage>
+     },
        {
       path:'/*',
       element:<ErrorPage></ErrorPage>
 
         },
+
 
     ]
   },

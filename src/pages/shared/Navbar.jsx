@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {  useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { toast } from 'react-toastify';
 import { Moon, Sun } from 'lucide-react';
@@ -21,24 +21,9 @@ const Navbar = () => {
       });
   };
 
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
-    }
-    return "light";
-  });
 
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]);
 
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+ 
 
   return (
     <div className='bg-gray-100 dark:bg-gray-800 mx-auto'>
@@ -51,12 +36,9 @@ const Navbar = () => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li><NavLink to='/'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Home</NavLink></li>
               <li><NavLink to='/allItems'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
+              <li><NavLink to='/questionAndAnswer'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>FAQ</NavLink></li>
             
-              <li>
-                <button onClick={toggleTheme} className="p-2 rounded  hover:bg-gray-200  dark:hover:bg-gray-700">
-                  {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
-                </button>
-              </li>
+            
               <li>
                 {user ? (
                   <div className="relative">
@@ -101,13 +83,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             <li><NavLink to='/'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Home</NavLink></li>
             <li><NavLink to='/allItems'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
-    
+              <li><NavLink to='/questionAndAnswer'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>FAQ</NavLink></li>
             <li>
-              <button onClick={toggleTheme} className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
-                {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
-              </button>
-            </li>
-            <li>
+                
               {user ? (
                 <div className="relative">
                   <img
