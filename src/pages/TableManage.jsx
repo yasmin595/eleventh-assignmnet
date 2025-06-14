@@ -17,7 +17,7 @@ const TableManage = ({ setTables, table, tables }) => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/items/${_id}`, {
+        fetch(`https://eleventh-assignment-server-eta.vercel.app/items/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

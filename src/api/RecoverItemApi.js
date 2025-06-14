@@ -3,7 +3,7 @@
   export  const manageRecoverPromise = (email, accessToken, logOut) =>{
   
 
-    return fetch(`http://localhost:3000/recover/${email}`,
+    return fetch(`https://eleventh-assignment-server-eta.vercel.app/recover/${email}`,
 {
 
   

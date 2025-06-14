@@ -3,7 +3,7 @@
   export  const manageItemPromise = (email, accessToken, logOut) =>{
   
 
-    return fetch(`http://localhost:3000/item/${email}`,
+    return fetch(`https://eleventh-assignment-server-eta.vercel.app/item/${email}`,
 {
 
   

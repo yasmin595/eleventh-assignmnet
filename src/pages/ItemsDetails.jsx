@@ -36,13 +36,13 @@ const ItemsDetails = () => {
       image: user?.photoURL
     };
 
-    await fetch('http://localhost:3000/recover', {
+    await fetch('https://eleventh-assignment-server-eta.vercel.app/recover', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(recoveredInfo)
     });
 
-    const res = await fetch(`http://localhost:3000/items/${_id}`, {
+    const res = await fetch(`https://eleventh-assignment-server-eta.vercel.app/items/${_id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: 'recovered' })

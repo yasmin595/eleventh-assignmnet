@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     children:[
      {
         index:true,
-          loader: () => fetch('http://localhost:3000/my-items'),
+          loader: () => fetch('https://eleventh-assignment-server-eta.vercel.app/my-items'),
         element:<Home></Home>,
         hydrateFallbackElement:<Loading></Loading>,
 
@@ -38,14 +38,14 @@ const router = createBrowserRouter([
      },
      {
       path:"/allItems",
-          loader: () => fetch('http://localhost:3000/items'),
+          loader: () => fetch('https://eleventh-assignment-server-eta.vercel.app/items'),
       element:<AllItems></AllItems>,
        hydrateFallbackElement:<Loading></Loading>,
 
      },
      {
      path:"/items/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/items/${params.id}`),
+        loader: ({params}) => fetch(`https://eleventh-assignment-server-eta.vercel.app/items/${params.id}`),
      element:<PrivateRoute>
       <ItemsDetails></ItemsDetails>
      </PrivateRoute>,
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
      },
      {
       path:"/updated-table/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/items/${params.id}`),
+        loader: ({params}) => fetch(`https://eleventh-assignment-server-eta.vercel.app/items/${params.id}`),
       element:<PrivateRoute>
         <UpdatedTable></UpdatedTable>
       </PrivateRoute>,

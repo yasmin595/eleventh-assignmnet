@@ -17,7 +17,7 @@ const AddItems = () => {
     const formData = new FormData(form);
     const newItems = Object.fromEntries(formData.entries());
 
-    fetch('http://localhost:3000/items', {
+    fetch('https://eleventh-assignment-server-eta.vercel.app/items', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newItems)

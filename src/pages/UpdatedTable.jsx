@@ -19,7 +19,7 @@ const UpdatedTable = () => {
     const formData = new FormData(form);
     const updatedTask = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/items/${_id}`, {
+    fetch(`https://eleventh-assignment-server-eta.vercel.app/items/${_id}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(updatedTask)
