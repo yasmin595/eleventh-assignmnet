@@ -19,7 +19,7 @@ const NewsletterSection = () => {
             className="flex-1 outline-none px-3 py-2 text-gray-700 placeholder-gray-400"
           />
           <button
-            type="button"
+            type="submit"
             className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-semibold transition"
           >
             SUBSCRIBE
