@@ -1,6 +1,8 @@
 import React from 'react';
+import { TabTitle } from '../utils/General';
 
 const QnAPage = () => {
+      TabTitle('WhereIsIt-FQA')
     const faqs = [
         {
             question: " What is WhereIsIt?",

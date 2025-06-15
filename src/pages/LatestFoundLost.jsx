@@ -5,9 +5,10 @@ import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { AiOutlineCalendar } from 'react-icons/ai';
 
 const LatestFoundLost = ({ item }) => {
-  const { thumbnail, title, category, description, postType, _id , location} = item;
+  const { thumbnail, title, category, date, postType, _id , location, status} = item;
 
   return (
     <div className='w-full max-w-4xl mx-auto p-4'>
@@ -18,11 +19,11 @@ const LatestFoundLost = ({ item }) => {
         className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
       >
         {/* Image */}
-        <div className="md:w-1/3">
+        <div className="md:w-1/3 rounded-2xl">
           <img
             src={thumbnail}
             alt="item"
-            className="w-full h-48 p-4"
+            className="w-full h-48 p-4 rounded-full"
           />
         </div>
 
@@ -41,14 +42,20 @@ const LatestFoundLost = ({ item }) => {
               <span className="font-medium pr-1">Category:</span>  {category}
             </p>
 
-            <p className="text-sm flex items-start text-gray-600 mb-2">
-              <MdOutlineDescription className="text-lg text-green-500 mr-2 mt-0.5" />
-              <span className="font-medium pr-1">Description:</span>  {description}
-            </p>
+        <p className="flex items-center text-sm text-gray-600">
+                  <AiOutlineCalendar className="mr-2 text-xl text-green-500" />
+                  <strong>Date:</strong> {date}
+                </p>
             <p className="text-sm flex items-start text-gray-600 mb-2">
               <FaMapMarkerAlt className="text-lg text-green-500 mr-2 mt-0.5" />
               <span className="font-medium pr-1">Location:</span>  {location}
             </p>
+           <p className="text-sm">
+            <strong>Status:</strong>{' '}
+            <span className={`badge ${status === 'recovered' ? 'badge-success' : 'badge-warning'} text-white`}>
+              {status || 'Not recovered yet'}
+            </span>
+          </p>
           </div>
 
           {/* View Details Button */}

@@ -105,6 +105,7 @@ const UpdatedTable = () => {
                    <option value="gadgets" />
                    <option value="Bags" />
                    <option value="Accessories" />
+         
                  </datalist>
                </div>
    
