@@ -6,10 +6,10 @@ import Footer from '../shared/Footer';
 const AuthLayout = () => {
     return (
           <div>
-              <header className="w-11/12 mx-auto py-4">
+              <header className="sticky top-0 z-50 mx-auto pb-4">
          <Navbar></Navbar>
           </header>
-          <main className="w-11/12 mx-auto py-5">
+          <main className="w-11/12 min-h-screen mx-auto py-5">
             <Outlet></Outlet>
           </main>
           <footer>

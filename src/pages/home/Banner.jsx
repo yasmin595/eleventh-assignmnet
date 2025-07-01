@@ -4,7 +4,7 @@ import { Typewriter } from 'react-simple-typewriter';
 
 const Banner = () => {
   return (
-    <div className='w-11/12 mx-auto mt-10'>
+    <div className=' mx-auto mt-10'>
       <div className="relative rounded-xl overflow-hidden shadow-lg">
         {/* Background Image */}
         <img

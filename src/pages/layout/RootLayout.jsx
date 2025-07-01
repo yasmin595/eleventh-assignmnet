@@ -13,7 +13,7 @@ const RootLayout = () => {
         <div>
          
          <Navbar></Navbar>
-               <div className='max-w-7xl mx-auto'>
+               <div className='max-w-7xl mx-auto min-h-screen'>
             {state == "loading"? <Loading></Loading> : <Outlet></Outlet> } 
          </div>
             <Footer></Footer>

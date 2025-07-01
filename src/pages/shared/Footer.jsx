@@ -10,7 +10,7 @@ const Footer = () => {
                      <div>
             <Link to="/" className="flex items-center gap-2 mb-3">
               <Search className="h-6 w-6 text-green-600" />
-              <span className="text-xl font-bold text-green-800">Found & Lost</span>
+              <span className="text-xl font-bold text-green-800">WhereIsIt</span>
             </Link>
             <p className="text-sm text-gray-600">
               A safe platform to report and find <br /> lost or found items near you.
