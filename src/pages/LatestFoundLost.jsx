@@ -11,7 +11,7 @@ const LatestFoundLost = ({ item }) => {
   const { thumbnail, title, category, date, postType, _id , location, status} = item;
 
   return (
-    <div className='w-full max-w-4xl mx-auto p-4'>
+    <div className='w-full max-w-4xl my-8 mx-auto p-4'>
       <motion.div
         initial={{ opacity: 0, scale: 0.50 }}
         animate={{ opacity: 1, scale: 1 }}
