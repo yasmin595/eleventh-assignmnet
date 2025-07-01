@@ -9,7 +9,7 @@ const ErrorPage = () => {
 <div> <img className='w-5/12 flex justify-center items-center mx-auto rounded-2xl' src={error} alt="" /></div>
        
         <h2 className="card-title font-bold p-2 text-4xl">No Page is found </h2>
-        <p className='text-gray-600 p-6'>Please, select right path</p>
+        <p className='text-gray-600 p-6'>Please, select right path and </p>
         </div>
     );
 };
