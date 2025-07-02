@@ -18,6 +18,8 @@ import UpdatedTable from "../pages/UpdatedTable";
 import ErrorPage from "../pages/ErrorPage";
 import ManageRecover from "../pages/ManageRecover";
 import QnAPage from "../pages/QnAPage";
+import BlogSection from "../pages/BlogSection";
+import BlogDetails from "../pages/BlogDetails";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,8 @@ const router = createBrowserRouter([
        hydrateFallbackElement:<Loading></Loading>,
 
      },
+
+   
      {
      path:"/items/:id",
         loader: ({params}) => fetch(`https://eleventh-assignment-server-eta.vercel.app/items/${params.id}`),
@@ -84,6 +88,16 @@ const router = createBrowserRouter([
       path:"/questionAndAnswer",
       element:<QnAPage></QnAPage>
      },
+       {
+      path:"/blog",
+      element:<BlogSection></BlogSection>
+     },
+
+     {
+      path:"/blogs/:id",
+      element:<BlogDetails></BlogDetails>
+     }
+     ,
        {
       path:'/*',
       element:<ErrorPage></ErrorPage>

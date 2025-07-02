@@ -26,8 +26,8 @@ const Navbar = () => {
  
 
   return (
-    <div className='bg-gray-100 sticky top-0 z-50 mx-auto'>
-      <div className="px-2 lg:px-4 navbar bg-base-100 mx-auto shadow-sm">
+    <div className='bg-gray-100  sticky top-0 z-50 mx-auto'>
+      <div className=" md:px-18  px-4 navbar bg-base-100 mx-auto shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,6 +36,7 @@ const Navbar = () => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li><NavLink to='/'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Home</NavLink></li>
               <li><NavLink to='/allItems'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
+              <li><NavLink to='/blog'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Blog</NavLink></li>
               <li><NavLink to='/questionAndAnswer'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>FAQ</NavLink></li>
             
             
@@ -83,6 +84,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             <li><NavLink to='/'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Home</NavLink></li>
             <li><NavLink to='/allItems'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Lost & Found Items</NavLink></li>
+              <li><NavLink to='/blog'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>Blog</NavLink></li>
               <li><NavLink to='/questionAndAnswer'  className={({isActive})=>isActive? 'text-green-800 underline font-semibold':''}>FAQ</NavLink></li>
             <li>
                 
